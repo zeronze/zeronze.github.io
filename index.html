@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio - Mahé Johan | Technicien IT & Développeur Web</title>
+  <meta name="description" content="Portfolio professionnel de Mahé Johan, technicien IT et développeur web expérimenté spécialisé en Symfony, PHP et support informatique">
+  <meta name="keywords" content="portfolio, développeur web, technicien IT, Symfony, PHP, support informatique, Rennes">
+  <meta name="author" content="Mahé Johan">
+  <meta name="robots" content="index, follow">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #bdbeba;
+      --secondary: #DCDBD8;
+      --light-bg: #ede9de;
+      --card-bg: #F0F0EF;
+      --text-dark: #2A2A2A;
+      --text-light: #5A5A5A;
+      --border: rgba(189, 190, 186, 0.3);
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-top: 56px; /* Pour la navbar fixe */
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Lora', serif;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    /* Navigation */
+/* Navigation améliorée */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0.75rem 0;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 0.5rem 0;
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  padding: 0.25rem 0;
+}
+
+
+.nav-link {
+  font-weight: 500;
+  color: #1f2937 !important;
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.15rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link:focus {
+  color: #7a6017 !important;
+}
+
+.nav-link:hover .nav-link-underline,
+.nav-link:focus .nav-link-underline,
+.nav-link.active .nav-link-underline {
+  width: 70%;
+  opacity: 1;
+  left: 15%;
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+    .navbar.scrolled {
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Hero Section - Optimisé */
+.hero {
+  --hero-min-height: 600px;
+  --hero-min-height-mobile: 500px;
+  
+  min-height: var(--hero-min-height);
+  height: 100vh;
+  max-height: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  margin-top: -56px;
+  isolation: isolate; /* Crée un nouveau contexte d'empilement */
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(
+      to bottom, 
+      rgba(245, 245, 244, 0.95) 0%, 
+      rgba(245, 245, 244, 0.85) 30%, 
+      rgba(245, 245, 244, 0.7) 100%
+    ), 
+    url('Images/background1.jpg') no-repeat center center/cover;
+  z-index: -2;
+  will-change: transform; /* Optimisation des performances */
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom, 
+    rgba(245, 245, 244, 0.8) 0%, 
+    rgba(245, 245, 244, 0.4) 50%, 
+    rgba(245, 245, 244, 0.2) 100%
+  );
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: min(800px, 90vw);
+  padding: 0 2rem;
+  z-index: 2;
+  will-change: transform;
+  backface-visibility: hidden; /* Améliore les performances des animations */
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  color: var(--text-dark);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 2rem;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+.hero p {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  max-width: min(600px, 90%);
+  margin: 0 auto 2rem;
+  color: var(--text-light);
+  animation: fadeInUp 1s ease 0.2s forwards;
+  opacity: 0;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  animation: bounce 2s infinite;
+}
+
+.scroll-down i {
+  font-size: 2rem;
+  color: var(--text-light);
+  transition: color 0.3s ease;
+}
+
+.scroll-down:hover i {
+  color: var(--text-dark);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-20px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-10px) translateX(-50%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .hero {
+    min-height: var(--hero-min-height-mobile);
+    height: 80vh;
+  }
+  
+  .hero::before {
+    background: 
+      linear-gradient(
+        to bottom, 
+        rgba(245, 245, 244, 0.98) 0%, 
+        rgba(245, 245, 244, 0.9) 100%
+      ), 
+      url('Images/background1-mobile.jpg') no-repeat center center/cover;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .scroll-down i {
+    font-size: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero p,
+  .scroll-down {
+    animation: none !important;
+  }
+  
+  .hero::before {
+    will-change: auto;
+  }
+}
+
+    .btn-primary-custom {
+      background-color: var(--secondary);
+      color: var(--text-dark);
+      border: 1px solid var(--primary);
+      padding: 0.75rem 2rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary-custom:hover {
+      background-color: var(--primary);
+      color: var(--text-dark);
+      transform: translateY(-2px);
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--text-dark);
+      font-size: 1.5rem;
+      animation: fadeInUp 1s ease 0.4s forwards, bounce 2s infinite 1.4s;
+      opacity: 0;
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 2rem;
+      margin: 3rem 0 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--primary);
+      display: inline-block;
+    }
+
+    /* À propos section */
+    .lead {
+      font-size: 1.25rem;
+      font-weight: 300;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      height: 100%;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border-color: var(--primary);
+    }
+
+    .card-header {
+      background: var(--secondary);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+      background: var(--card-bg);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 1.5rem;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: -1.7rem;
+      top: 0.3rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 2px solid var(--card-bg);
+    }
+
+    .timeline-date {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .timeline-desc {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    .progress-bar {
+      background-color: var(--primary);
+      color: var(--text-dark);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      padding-left: 1rem;
+    }
+
+    .skill-badge {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--text-dark);
+      padding: 0.35rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin: 0.2rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .skill-badge:hover {
+      background: var(--primary);
+      color: var(--text-dark);
+      border-color: var(--primary);
+    }
+
+    /* Projets */
+    .bg-light {
+      background-color: var(--light-bg) !important;
+    }
+
+    .img-fluid {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .rounded-circle {
+      border-radius: 50% !important;
+    }
+
+    .shadow {
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* Détails des projets */
+    .project-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+      background-color: rgba(0,0,0,0.03);
+      border-radius: 0 0 8px 8px;
+      margin: 0 -1.5rem -1.5rem;
+      padding: 0 1.5rem;
+    }
+
+    .project-details-content {
+      padding: 1rem 0;
+    }
+
+    .project-details.active {
+      max-height: 500px; /* Ajustez cette valeur selon le contenu */
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    .btn-toggle-details {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-toggle-details:hover {
+      background-color: var(--primary);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--secondary);
+      color: var(--text-dark);
+      text-align: center;
+      padding: 3rem 1rem;
+      margin-top: 4rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links a {
+      color: var(--text-dark);
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--primary);
+    }
+
+    .copyright {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    /* Formulaires */
+    .form-control {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+    }
+
+    .form-control:focus {
+      background-color: var(--card-bg);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 0.25rem rgba(189, 190, 186, 0.25);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+      }
+      40% {
+        transform: translateY(-20px) translateX(-50%);
+      }
+      60% {
+        transform: translateY(-10px) translateX(-50%);
+      }
+    }
+
+    @keyframes progressAnimation {
+      from { width: 0; }
+    }
+
+    /* Responsive */
+    @media (max-width: 767px) {
+      body {
+        padding-top: 56px;
+      }
+      
+      .hero {
+        height: 80vh;
+        min-height: 500px;
+        margin-top: -56px;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .card-header, .card-body {
+        padding: 1.25rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+        margin: 2rem 0 1rem;
+      }
+      
+      .navbar {
+        backdrop-filter: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation améliorée -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">
+      <span class="brand-gradient">Mahé Johan</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link position-relative" href="#apropos">
+            <span class="nav-link-content">À propos</span>
+            <span class="nav-link-underline"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link position-relative" href="#experiences">
+            <span class="nav-link-content">Expériences</span>
+            <span class="nav-link-underline"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link position-relative" href="#formations">
+            <span class="nav-link-content">Formations</span>
+            <span class="nav-link-underline"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link position-relative" href="#projets">
+            <span class="nav-link-content">Projets</span>
+            <span class="nav-link-underline"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link position-relative" href="#contact">
+            <span class="nav-link-content">Contact</span>
+            <span class="nav-link-underline"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Mahé Johan</h1>
+    <h2>Technicien IT & Développeur Web</h2>
+    <p>Passionné par les technologies et l'innovation, je mets mes compétences à votre service</p>
+    <a href="#apropos" class="btn btn-primary-custom mt-3">Découvrir mon parcours</a>
+  </div>
+  <div class="scroll-down">
+    <i class="bi bi-chevron-down"></i>
+  </div>
+</section>
+
+<!-- À propos -->
+<section class="container py-5" id="apropos">
+  <div class="row align-items-center">
+    <div class="col-md-4 mb-4 mb-md-0">
+      <img src="Images/1681304749226.jpg" alt="Photo de Mahé Johan" class="img-fluid rounded-circle shadow" loading="lazy">
+    </div>
+    <div class="col-md-8">
+      <h2 class="section-title">À propos de moi</h2>
+      <p class="lead">Technicien IT et Développeur Web, je combine compétences techniques et sens du service.</p>
+      <p>Technicien IT polyvalent, j'interviens sur le support bureautique, le déploiement de postes, l'assistance aux utilisateurs ainsi que sur des projets IT tels que des déménagements ou des renouvellements de matériel. Je souhaite évoluer vers la gestion d'applications et de logiciels métiers, afin de contribuer à l'amélioration des outils et du quotidien des utilisateurs.</p>
+      <div class="mt-4">
+        <span class="skill-badge">Polyvalent</span>
+        <span class="skill-badge">Autonome</span>
+        <span class="skill-badge">Curieux</span>
+        <span class="skill-badge">Résolution de problèmes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Expériences Professionnelles -->
+<main id="experiences" class="container py-5">
+  <h2 class="section-title">Expériences Professionnelles</h2>
+  <div class="row g-4 mb-5">
+    <section class="col-12 col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h2><i class="bi bi-briefcase me-2"></i>Technicien IT</h2>
+          <div class="timeline-date">févr. 2024 - aujourd'hui · SPIE ICS · CDI</div>
+          <div class="text-muted">Rennes, Bretagne, France · Sur site</div>
+        </div>
+        <div class="card-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-title">Support bureautique & applicatif</div>
+              <div class="timeline-desc">
+                <p>Gestion des tickets via EasyVista</p>
+                <p>Assistance aux utilisateurs sur les outils bureautiques et applications métiers</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-title">Déploiement & gestion de postes</div>
+              <div class="timeline-desc">
+                <p>Masterisation, préparation et déploiement de postes : fixes, portables, terminaux, smartphones</p>
+                <p>Installation d'imprimantes en réseau ou en local</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-4">
+            <span class="skill-badge">Windows 10</span>
+            <span class="skill-badge">Windows 11</span>
+            <span class="skill-badge">MECM</span>
+            <span class="skill-badge">Support technique</span>
+            <span class="skill-badge">Déploiement</span>
+            <span class="skill-badge">EASYVISTA</span>
+            <span class="skill-badge">Microsoft Windows</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-12 col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h2><i class="bi bi-code-slash me-2"></i>Développeur Web</h2>
+          <div class="timeline-date">juil. 2023 - sept. 2023 · Stage</div>
+          <div class="text-muted">Rennes, Bretagne, France · À distance</div>
+        </div>
+        <div class="card-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-desc">
+                <p>Conception et développement complet du site COLLECTIVENTE, plateforme pour collectivités territoriales.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-title">Réalisations clés :</div>
+              <div class="timeline-desc">
+                <ul>
+                  <li>Développement sous Symfony 6.3 et MySQL</li>
+                  <li>Fonctionnalités : inscription, publication d'annonces, espace admin</li>
+                  <li>Intégration d'une charte graphique personnalisée</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-4">
+            <span class="skill-badge">Symfony</span>
+            <span class="skill-badge">PHP</span>
+            <span class="skill-badge">MySQL</span>
+            <span class="skill-badge">HTML/CSS</span>
+            <span class="skill-badge">Feuilles de style en cascade (CSS)</span>
+            <span class="skill-badge">Git</span>
+            <span class="skill-badge">GitHub</span>
+            <span class="skill-badge">Architecture MVC</span>
+            <span class="skill-badge">HTML/CSS</span>
+            <span class="skill-badge">Design d'interface utilisateur</span>
+            <span class="skill-badge">rédaction de cahier des charges</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Formations -->
+  <h2 class="section-title" id="formations">Formations</h2>
+  <div class="row g-4">
+    <section class="col-12 col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h2><i class="bi bi-mortarboard me-2"></i>Formation Développeur Web</h2>
+          <div class="timeline-date">nov. 2022 - avr. 2023 · AFPA</div>
+          <div class="text-muted">Bac+2 Développement Web</div>
+        </div>
+        <div class="card-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-title">Compétences acquises :</div>
+              <div class="timeline-desc">
+                <ul>
+                  <li>Développement front-end (HTML, CSS, JavaScript)</li>
+                  <li>Conception d'interfaces responsive</li>
+                  <li>Développement back-end (bases de données, API)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-4">
+            <span class="skill-badge">JavaScript</span>
+            <span class="skill-badge">PHP</span>
+            <span class="skill-badge">React</span>
+            <span class="skill-badge">canvas</span>
+            <span class="skill-badge">Bootstrap</span>
+            <span class="skill-badge">symfony</span>
+            <span class="skill-badge">Architecture MVC</span>
+            <span class="skill-badge">Design d'interface utilisateur</span>
+            <span class="skill-badge">Développement full-stack</span>
+            <span class="skill-badge">Feuilles de style en cascade (CSS)</span>
+            <span class="skill-badge">Figma (logiciel)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="col-12 col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h2><i class="bi bi-book me-2"></i>Formation Pré-qualifiante</h2>
+          <div class="timeline-date">avr. 2022 - juil. 2022 · AFPA</div>
+          <div class="text-muted">Développeur web et web mobile</div>
+        </div>
+        <div class="card-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-desc">
+                <ul>
+                  <li>Initiation au développement web : HTML & CSS</li>
+                  <li>Introduction à la programmation back-end</li>
+                  <li>Projet pratique de création d'un mini-jeu</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-4">
+            <span class="skill-badge">HTML</span>
+            <span class="skill-badge">CSS</span>
+            <span class="skill-badge">PHP</span>
+            <span class="skill-badge">Feuilles de style en cascade (CSS)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- Projets -->
+<section class="container py-5 bg-light" id="projets">
+  <h2 class="section-title">Mes Projets</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="Images/collectivente.png" alt="Projet Collectivente" class="img-fluid shadow" loading="lazy">
+        <div class="card-body">
+          <h3 class="h5">Collectivente</h3>
+          <p>Plateforme pour collectivités territoriales développée avec Symfony.</p>
+          <div class="mt-auto">
+            <button class="btn btn-sm btn-primary-custom btn-toggle-details" data-target="details1">Voir les détails</button>
+          </div>
+          <div class="project-details" id="details1">
+            <div class="project-details-content">
+              <p><strong>Collectivente</strong></p>
+              <p><em>juil. 2023 - sept. 2023</em></p>
+              <p>Les collectivités territoriales (Mairies, Syndicats Intercommunaux, Conseils Départementaux...) n'ont pas de plateforme dédiée pour l'achat ou la revente de matériel (Engins de travaux publics, matériel scolaire, matériel informatique...).</p>
+              <p>Annonces Collectivités a pour objectif de permettre la mise en relation de ces collectivités.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="Images/portfolio.png" class="card-img-top" alt="Portfolio Artistique" loading="lazy">
+        <div class="card-body">
+          <h3 class="h5">Portfolio Artistique</h3>
+          <p>Portfolio pour moi.</p>
+          <div class="mt-auto">
+            <button class="btn btn-sm btn-primary-custom btn-toggle-details" data-target="details2">Voir les détails</button>
+          </div>
+          <div class="project-details" id="details2">
+            <div class="project-details-content">
+              <p><strong>Portfolio Artistique</strong></p>
+              <p>Développement d'un site vitrine pour un artiste local avec galerie d'images interactive, système de filtrage par catégories et formulaire de contact.</p>
+              <p>Technologies utilisées : HTML, CSS, JavaScript</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="Images/photos-coming-soon.jpg" class="card-img-top" alt="Projet à venir" loading="lazy">
+        <div class="card-body">
+          <h3 class="h5">Coming soon</h3>
+          <p>Nouveau projet en cours de développement...</p>
+          <div class="mt-auto">
+            <button class="btn btn-sm btn-primary-custom btn-toggle-details" data-target="details3">Voir les détails</button>
+          </div>
+          <div class="project-details" id="details3">
+            <div class="project-details-content">
+              <p>Projet en cours de réalisation</p>
+              <p>Plus d'informations à venir prochainement</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="container py-5" id="contact">
+  <h2 class="section-title">Contactez-moi</h2>
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <form id="contactForm">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nom</label>
+          <input type="text" class="form-control" id="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary-custom">Envoyer</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/johan-mahe-363086237/" 
+       aria-label="Profil LinkedIn de Johan Mahé" 
+       target="_blank" 
+       rel="noopener noreferrer">
+       <i class="bi bi-linkedin" aria-hidden="true"></i>
+       <span class="visually-hidden">LinkedIn</span>
+    </a>
+  </div> <!-- Fermeture manquante de div.social-links -->
+  
+  <div class="copyright">
+    &copy; 2024 Mahé Johan - Tous droits réservés
+  </div>
+</footer>
+
+<!-- Bootstrap Bundle JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Effet parallax
+    const hero = document.querySelector('.hero');
+    const heroContent = document.querySelector('.hero-content');
+    
+    function updateParallax() {
+      const scrollPosition = window.pageYOffset;
+      const heroHeight = hero.offsetHeight;
+      
+      if (scrollPosition <= heroHeight) {
+        const speed = 0.3;
+        const yPos = -scrollPosition * speed;
+        
+        // Déplacement de l'arrière-plan
+        hero.style.backgroundPosition = `center ${yPos}px`;
+        
+        // Léger déplacement du contenu en sens inverse
+        heroContent.style.transform = `translateY(${scrollPosition * 0.1}px)`;
+      }
+    }
+    
+    window.addEventListener('scroll', updateParallax);
+    updateParallax();
+
+    // Animation au scroll
+    const animateOnScroll = function() {
+      const elements = document.querySelectorAll('.card, .timeline-item');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementPosition < windowHeight - 100) {
+          element.style.opacity = 1;
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    };
+    
+    // Initial state
+    const cards = document.querySelectorAll('.card');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    cards.forEach(card => {
+      card.style.opacity = 0;
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+    
+    timelineItems.forEach(item => {
+      item.style.opacity = 0;
+      item.style.transform = 'translateX(-10px)';
+      item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+    
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll();
+
+// Navbar scroll effect amélioré
+const navbar = document.querySelector('.navbar');
+const navLinks = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 30) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+  
+  // Highlight active section
+  navLinks.forEach(link => {
+    const section = document.querySelector(link.getAttribute('href'));
+    if (section) {
+      const sectionTop = section.offsetTop - 100;
+      const sectionBottom = sectionTop + section.offsetHeight;
+      
+      if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    }
+  });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
+      });
+      
+      // Close mobile menu when clicking a link
+      const navbarCollapse = document.querySelector('.navbar-collapse');
+      if (navbarCollapse.classList.contains('show')) {
+        navbarCollapse.classList.remove('show');
+      }
+    }
+  });
+});
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 70,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+// Form submission
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Récupération des valeurs du formulaire
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    
+    // Construction du lien mailto
+    const subject = `Message de ${name} via votre portfolio`;
+    const body = `Nom: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+    const mailtoLink = `mailto:johan.mahe92@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Ouverture du client mail par défaut
+    window.location.href = mailtoLink;
+    
+    // Feedback utilisateur
+    alert('Votre message a été transféré à votre client de messagerie. Merci!');
+    this.reset();
+  });
+}
+    // Gestion des détails des projets
+    const toggleButtons = document.querySelectorAll('.btn-toggle-details');
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-target');
+        const details = document.getElementById(targetId);
+        
+        // Fermer tous les autres détails ouverts
+        document.querySelectorAll('.project-details').forEach(detail => {
+          if (detail.id !== targetId && detail.classList.contains('active')) {
+            detail.classList.remove('active');
+            // Trouver le bouton correspondant et mettre à jour son texte
+            const otherButton = document.querySelector(`[data-target="${detail.id}"]`);
+            if (otherButton) {
+              otherButton.textContent = 'Voir les détails';
+            }
+          }
+        });
+        
+        // Basculer l'état actuel
+        details.classList.toggle('active');
+        
+        // Mettre à jour le texte du bouton
+        if (details.classList.contains('active')) {
+          this.textContent = 'Masquer les détails';
+        } else {
+          this.textContent = 'Voir les détails';
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
