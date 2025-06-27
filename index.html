@@ -879,22 +879,21 @@
   <h2 class="section-title">Contactez-moi</h2>
   <div class="row">
     <div class="col-lg-6 mx-auto">
-      <!-- Formulaire Formspree avec votre email en destinataire -->
-      <form action="https://formspree.io/f/johan.mahe92@gmail.com" method="POST" id="contactForm">
-        <input type="hidden" name="_replyto" value="johan.mahe92@gmail.com"> <!-- Double sécurité -->
+      <!-- Formulaire Formspree corrigé -->
+      <form action="https://formspree.io/f/mvojwdyw" method="POST" id="contactForm">
+        <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio">
         <div class="mb-3">
           <label for="name" class="form-label">Nom</label>
           <input type="text" class="form-control" id="name" name="name" required>
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email de l'expéditeur</label>
-          <input type="email" class="form-control" id="email" name="_replyto" required>
+          <input type="email" class="form-control" id="email" name="email" required>
         </div>
         <div class="mb-3">
           <label for="message" class="form-label">Message</label>
           <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
         </div>
-        <!-- Protection anti-spam (optionnel mais recommandé) -->
         <input type="text" name="_gotcha" style="display:none">
         <button type="submit" class="btn btn-primary-custom">Envoyer</button>
       </form>
@@ -908,7 +907,8 @@
           <i class="bi bi-linkedin me-2"></i> Mon profil LinkedIn
         </a>
       </div>
-
+    </div>
+  </div>
 </section>
 
 <footer>
@@ -1109,24 +1109,29 @@ if (contactForm) {
     });
   });
 
-// Feedback après envoi
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    fetch(e.target.action, {
+// Gestion unique du formulaire
+document.getElementById('contactForm')?.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  try {
+    const response = await fetch(e.target.action, {
       method: 'POST',
       body: new FormData(e.target),
       headers: { 'Accept': 'application/json' }
-    })
-    .then(response => {
-      if (response.ok) {
-        alert('Message envoyé avec succès ! Je vous répondrai dès que possible.');
-        e.target.reset();
-      } else {
-        throw new Error('Erreur : le message n\'a pas pu être envoyé.');
-      }
-    })
-    .catch(error => alert(error.message));
-  });
+    });
+    
+    if (response.ok) {
+      alert('Message envoyé avec succès ! Je vous répondrai dès que possible.');
+      e.target.reset();
+    } else {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Erreur lors de l\'envoi');
+    }
+  } catch (error) {
+    console.error('Erreur:', error);
+    alert(`Erreur: ${error.message}`);
+  }
+});
 </script>
 
 </body>
