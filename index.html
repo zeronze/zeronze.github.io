@@ -878,14 +878,40 @@
 <section class="container py-5" id="contact">
   <h2 class="section-title">Contactez-moi</h2>
   <div class="row">
-    <div class="col-lg-6 mx-auto text-center">
-      <p>Vous pouvez me contacter directement sur LinkedIn :</p>
-      <a href="https://www.linkedin.com/in/johan-mahe-363086237" 
-         target="_blank" 
-         rel="noopener noreferrer"
-         class="btn btn-primary-custom">
-        <i class="bi bi-linkedin me-2"></i> Contacter sur LinkedIn
-      </a>
+    <div class="col-lg-8 mx-auto text-center">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body p-4 p-lg-5">
+          <div class="mb-4">
+            <i class="bi bi-linkedin text-primary" style="font-size: 3rem;"></i>
+            <h3 class="h4 mt-3">Contact professionnel</h3>
+            <p class="mb-4">Pour toute proposition professionnelle ou collaboration, contactez-moi via LinkedIn :</p>
+            
+            <!-- Bouton principal LinkedIn -->
+            <a href="https://www.linkedin.com/in/johan-mahe-363086237" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="btn btn-primary btn-lg rounded-pill px-4">
+              <i class="bi bi-linkedin me-2"></i> Envoyer un message
+            </a>
+            
+            <!-- Alternative avec confirmation -->
+            <div class="mt-4">
+             
+              <p class="small text-muted mt-2">
+                <i class="bi bi-info-circle"></i> Nécessite un compte LinkedIn
+              </p>
+            </div>
+          </div>
+          
+          <!-- QR Code optionnel -->
+          <div class="mt-5 pt-4 border-top">
+            <p class="small mb-3">Scannez ce QR Code pour accéder à mon profil :</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.linkedin.com/in/johan-mahe-363086237" 
+                 alt="QR Code LinkedIn" 
+                 class="img-thumbnail border-0 bg-transparent">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1075,6 +1101,28 @@ if (contactForm) {
             }
           }
         });
+
+
+         // Confirmation avant redirection LinkedIn
+  document.getElementById('linkedinConfirmBtn')?.addEventListener('click', function() {
+    if(confirm("Vous allez être redirigé vers la messagerie LinkedIn. Souhaitez-vous continuer ?")) {
+      window.open(
+        "https://www.linkedin.com/messaging/thread/new/?recipient=johan-mahe-363086237", 
+        "_blank",
+        "noopener,noreferrer"
+      );
+    }
+  });
+
+  // Animation hover pour les boutons
+  document.querySelectorAll('#contact .btn').forEach(btn => {
+    btn.addEventListener('mouseenter', function() {
+      this.querySelector('i').style.transform = 'translateX(3px)';
+    });
+    btn.addEventListener('mouseleave', function() {
+      this.querySelector('i').style.transform = 'translateX(0)';
+    });
+  });
         
         // Basculer l'état actuel
         details.classList.toggle('active');
